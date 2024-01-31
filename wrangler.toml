@@ -1,0 +1,11 @@
+name = "starter-vike-cloudflare-react-worker"
+main = "./worker/index.js"
+compatibility_flags = ["streams_enable_constructors"]
+compatibility_date = "2021-09-29"
+workers_dev = true
+
+[site]
+bucket = "./dist/client"
+
+[dev]
+port = 3000
