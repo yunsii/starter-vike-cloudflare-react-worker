@@ -1,14 +1,14 @@
 {
   "compilerOptions": {
-    "noEmit": true,
-    "module": "esnext",
     "target": "esnext",
+    "jsx": "react",
     "lib": ["esnext", "DOM"],
-    "strict": true,
-    "moduleResolution": "node",
+    "module": "esnext",
+    "moduleResolution": "Bundler",
     "types": ["@cloudflare/workers-types"],
-    "allowSyntheticDefaultImports": true,
-    "jsx": "react"
+    "strict": true,
+    "noEmit": true,
+    "allowSyntheticDefaultImports": true
   },
   "exclude": ["node_modules", "dist", "test"]
 }

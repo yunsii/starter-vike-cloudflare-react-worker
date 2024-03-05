@@ -1,15 +1,14 @@
 [Cloudflare Workers](https://workers.cloudflare.com/) with:
- - Vite
- - Vike
- - React
- - [`react-streaming`](https://github.com/brillout/react-streaming)
- - Universal `fetch()`
 
+- Vite
+- Vike
+- React
+- [`react-streaming`](https://github.com/brillout/react-streaming)
+- Universal `fetch()`
 
 ## Docs
 
 See [vike.dev/cloudflare-workers](https://vike.dev/cloudflare-workers).
-
 
 ## Run
 
@@ -36,10 +35,10 @@ npm run preview
 ```
 
 Deploy the worker to Cloudflare:
+
 ```bash
 npm run deploy
 ```
-
 
 ## Universal `fetch()`
 

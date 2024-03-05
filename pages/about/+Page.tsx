@@ -1,6 +1,6 @@
-export default Page
-
 import React from 'react'
+
+export default Page
 
 function Page() {
   return (

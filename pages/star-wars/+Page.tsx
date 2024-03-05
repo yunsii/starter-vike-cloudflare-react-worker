@@ -1,15 +1,18 @@
-export default Page
-
 import React, { Suspense } from 'react'
 import { useAsync } from 'react-streaming'
+
 import { usePageContext } from '../../renderer/usePageContext'
 import { Counter } from '../../components/Counter'
+
+export default Page
 
 function Page() {
   return (
     <>
       <h1>Star Wars Movies</h1>
-      Interactive while loading: <Counter />
+      Interactive while loading:
+      {' '}
+      <Counter />
       <Suspense fallback={<p>Loading...</p>}>
         <MovieList />
       </Suspense>
@@ -19,9 +22,12 @@ function Page() {
 
 function MovieList() {
   const pageContext = usePageContext()
+  // 如果不显示安装 @brillout/json-serializer 编译时会报错
   const movies = useAsync(['star-wars-movies'], async () => {
     const fetch = pageContext.fetch ?? globalThis.fetch
-    const response = await fetch('https://star-wars.brillout.com/api/films.json')
+    const response = await fetch(
+      'https://star-wars.brillout.com/api/films.json',
+    )
     // Simulate slow network
     await new Promise((r) => setTimeout(r, 2 * 1000))
     const movies = await getMovies(response)
@@ -31,25 +37,30 @@ function MovieList() {
     <ol>
       {movies.map(({ id, title, release_date }) => (
         <li key={id}>
-          {title} ({release_date})
+          {title}
+          {' '}
+          (
+          {release_date}
+          )
         </li>
       ))}
     </ol>
   )
 }
 
-type Movie = {
+interface Movie {
   id: string
   title: string
   release_date: string
 }
+
 async function getMovies(response: any): Promise<Movie[]> {
   const moviesFromApi = (await response.json()).results as MovieFromApi[]
   const movies = cleanApiResult(moviesFromApi)
   return movies
 }
 
-type MovieFromApi = {
+interface MovieFromApi {
   title: string
   release_date: string
   director: string
@@ -61,7 +72,7 @@ function cleanApiResult(moviesFromApi: MovieFromApi[]): Movie[] {
     return {
       id: String(i + 1),
       title,
-      release_date
+      release_date,
     }
   })
   return movies
