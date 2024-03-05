@@ -21,10 +21,10 @@ export const onRenderHtml: OnRenderHtmlAsync = async (pageContext) => {
 
   return escapeInject`
     <!DOCTYPE html>
-        <html>
-          <body>
-            <div id="page-view">${stream}</div>
-          </body>
-        </html>
+    <html>
+      <body>
+        <div id="page-view">${stream}</div>
+      </body>
+    </html>
   `
 }
