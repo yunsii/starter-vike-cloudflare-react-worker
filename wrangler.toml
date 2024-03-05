@@ -1,3 +1,4 @@
+account_id = "0db3c9ec1d741afb9a63eab399c77c3b"
 name = "starter-vike-cloudflare-react-worker"
 main = "./worker/index.ts"
 compatibility_flags = ["streams_enable_constructors"]
