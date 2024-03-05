@@ -1,5 +1,5 @@
 name = "starter-vike-cloudflare-react-worker"
-main = "./worker/index.js"
+main = "./worker/index.ts"
 compatibility_flags = ["streams_enable_constructors"]
 compatibility_date = "2021-09-29"
 workers_dev = true

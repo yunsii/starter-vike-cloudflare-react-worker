@@ -1,20 +1,20 @@
-import { renderPage } from 'vike/server'
+import { renderPage } from "vike/server";
 
-export { handleSsr }
+export { handleSsr };
 
-async function handleSsr(url: string, userAgent: string) {
+async function handleSsr(url: string, userAgent: string | null) {
   const pageContextInit = {
     urlOriginal: url,
     fetch: (...args: Parameters<typeof fetch>) => fetch(...args),
-    userAgent
-  }
-  const pageContext = await renderPage(pageContextInit)
-  const { httpResponse } = pageContext
+    userAgent,
+  };
+  const pageContext = await renderPage(pageContextInit);
+  const { httpResponse } = pageContext;
   if (!httpResponse) {
-    return null
+    return null;
   } else {
-    const { statusCode: status, headers } = httpResponse
-    const stream = httpResponse.getReadableWebStream()
-    return new Response(stream, { headers, status })
+    const { statusCode: status, headers } = httpResponse;
+    const stream = httpResponse.getReadableWebStream();
+    return new Response(stream, { headers, status });
   }
 }
