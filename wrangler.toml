@@ -10,3 +10,7 @@ bucket = "./dist/client"
 
 [dev]
 port = 3000
+
+[[r2_buckets]]
+binding = 'R2_BUCKET'
+bucket_name = 'starter-vike-cloudflare-react-worker'

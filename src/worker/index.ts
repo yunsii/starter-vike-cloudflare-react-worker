@@ -5,6 +5,7 @@ import { handleStaticAssets } from './static-assets'
 
 async function handleFetchEvent(event: FetchEvent) {
   const { url } = event.request
+
   if (!isAssetUrl(url)) {
     const userAgent = event.request.headers.get('User-Agent')
     const response = await handleSsr(url, userAgent)
