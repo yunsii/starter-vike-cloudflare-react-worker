@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { usePageContext } from '../../renderer/usePageContext'
+import { usePageContext } from '#src/renderer/usePageContext'
 
-export function Page() {
+export default function Page() {
   const pageContext = usePageContext()
 
   let msg: string // Message shown to the user

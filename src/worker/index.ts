@@ -1,13 +1,30 @@
-import { handleFetchError } from '../helpers/worker'
-
 import { handleSsr } from './ssr'
 import { handleStaticAssets } from './static-assets'
 
-async function handleFetchEvent(event: FetchEvent) {
-  const { url } = event.request
+import { handleFetchError } from '#src/helpers/worker'
+import { handleApi } from '#src/server/api/_root'
 
-  if (!isAssetUrl(url)) {
-    const userAgent = event.request.headers.get('User-Agent')
+export function isAssetUrl(url: string) {
+  const { pathname } = new URL(url)
+  return pathname.startsWith('/assets/')
+}
+
+export function isApiUrl(url: string) {
+  const { pathname } = new URL(url)
+  return pathname.startsWith('/api/')
+}
+
+async function handleFetchEvent(event: FetchEvent) {
+  const { method, url } = event.request
+  const userAgent = event.request.headers.get('User-Agent')
+
+  if (isApiUrl(url)) {
+    const response = await handleApi(method, url, userAgent)
+    if (response !== null) {
+      return response
+    }
+  }
+  else if (!isAssetUrl(url)) {
     const response = await handleSsr(url, userAgent)
     if (response !== null) {
       return response
@@ -25,8 +42,3 @@ addEventListener('fetch', (event: FetchEvent) => {
     handleFetchError(event, err)
   }
 })
-
-function isAssetUrl(url: string) {
-  const { pathname } = new URL(url)
-  return pathname.startsWith('/assets/')
-}

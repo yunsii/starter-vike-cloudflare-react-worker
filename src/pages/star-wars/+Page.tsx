@@ -1,15 +1,13 @@
 import React, { Suspense } from 'react'
 import { useAsync } from 'react-streaming'
 
-import { usePageContext } from '../../renderer/usePageContext'
-import { Counter } from '../../components/Counter'
+import { usePageContext } from '#src/renderer/usePageContext'
+import { Counter } from '#src/components/Counter'
 
-export default Page
-
-function Page() {
+export default function Page() {
   return (
     <>
-      <h1>Star Wars Movies</h1>
+      <h1 className='text-3xl font-bold'>Star Wars Movies</h1>
       Interactive while loading:
       {' '}
       <Counter />

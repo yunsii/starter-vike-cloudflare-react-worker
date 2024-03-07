@@ -23,7 +23,8 @@ async function startServer() {
   app.use(viteDevMiddleware)
 
   app.get('*', async (req, res, next) => {
-    const userAgent = req.headers['user-agent']
+    const userAgent = req.headers['user-agent'] || null
+
     const pageContextInit = {
       urlOriginal: req.originalUrl,
       fetch,
@@ -31,6 +32,7 @@ async function startServer() {
     }
     const pageContext = await renderPage(pageContextInit)
     const { httpResponse } = pageContext
+
     if (!httpResponse) {
       return next()
     }

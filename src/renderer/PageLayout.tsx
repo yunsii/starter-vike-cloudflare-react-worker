@@ -1,6 +1,6 @@
 import React from 'react'
+import { cls } from 'tagged-classnames-free'
 
-import './PageLayout.css'
 import { PageContextProvider } from './usePageContext'
 
 import type { PageContext } from 'vike/types'
@@ -17,15 +17,37 @@ export function PageLayout(props: React.PropsWithChildren<PageLayoutProps>) {
       <PageContextProvider pageContext={pageContext}>
         <Layout>
           <Sidebar>
-            <a className='navitem' href='/'>
-              Home
-            </a>
-            <a className='navitem' href='/about'>
-              About
-            </a>
-            <a className='navitem' href='/star-wars'>
-              Star Wars
-            </a>
+            {[
+              {
+                href: '/',
+                label: 'Home',
+              },
+              {
+                href: '/about',
+                label: 'About',
+              },
+              {
+                href: '/star-wars',
+                label: 'Star Wars',
+              },
+              {
+                href: '/data',
+                label: 'Data',
+              },
+            ].map((item) => {
+              return (
+                <a
+                  key={item.href}
+                  className={cls`
+                    p-1 text-cyan-600 
+                    hover:text-cyan-500 hover:underline
+                  `}
+                  href={item.href}
+                >
+                  {item.label}
+                </a>
+              )
+            })}
           </Sidebar>
           <Content>{children}</Content>
         </Layout>

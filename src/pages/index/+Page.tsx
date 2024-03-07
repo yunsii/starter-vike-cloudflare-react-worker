@@ -1,13 +1,11 @@
 import React from 'react'
 
-import { Counter } from '../../components/Counter'
+import { Counter } from '#src/components/Counter'
 
-export default Page
-
-function Page() {
+export default function Page() {
   return (
     <>
-      <h1>Welcome</h1>
+      <h1 className='text-3xl font-bold'>Welcome</h1>
       This page is:
       <ul>
         <li>Rendered to HTML.</li>

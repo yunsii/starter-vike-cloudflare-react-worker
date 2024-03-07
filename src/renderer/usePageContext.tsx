@@ -9,7 +9,7 @@ export function PageContextProvider({ pageContext, children }: { pageContext: Pa
 }
 
 // eslint-disable-next-line react-refresh/only-export-components
-export function usePageContext() {
+export function usePageContext<T = unknown>() {
   const pageContext = useContext(Context)
-  return pageContext
+  return pageContext as PageContext<T>
 }

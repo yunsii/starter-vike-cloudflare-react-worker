@@ -47,5 +47,6 @@
   ],
   "cSpell.words": [
     "brillout"
-  ]
+  ],
+  "css.lint.unknownAtRules": "ignore"
 }
