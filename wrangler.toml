@@ -14,5 +14,5 @@ port = 3000
 
 [[r2_buckets]]
 binding = 'R2_BUCKET'
-bucket_name = '[priview only]starter-vike-cloudflare-react-worker'
+bucket_name = 'starter-vike-cloudflare-react-worker'
 preview_bucket_name = 'starter-vike-cloudflare-react-worker'
