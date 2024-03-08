@@ -6,7 +6,7 @@
     "build": "vite build",
     "build:watch": "vite build --watch",
     "preview": "npm run build & wrangler dev",
-    "deploy": "npm run build && wrangler deploy",
+    "deploy": "npm run build && wrangler deploy --env production",
     "prepare": "husky install",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
