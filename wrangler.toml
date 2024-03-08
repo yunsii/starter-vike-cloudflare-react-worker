@@ -6,6 +6,12 @@ compatibility_date = "2021-09-29"
 workers_dev = true
 kv_namespaces = [ { binding = "KV_STORE", id = "d3db85d6f7b14a338feda4cc0235e165" } ]
 
+[vars]
+ENABLED_R2 = true
+
+[env.production.vars]
+ENABLED_R2 = false
+
 [site]
 bucket = "./dist/client"
 

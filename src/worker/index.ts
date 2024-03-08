@@ -15,11 +15,11 @@ export function isApiUrl(url: string) {
 }
 
 async function handleFetchEvent(event: FetchEvent) {
-  const { method, url } = event.request
+  const { url } = event.request
   const userAgent = event.request.headers.get('User-Agent')
 
   if (isApiUrl(url)) {
-    const response = await handleApi(method, url, userAgent)
+    const response = await handleApi(event.request)
     if (response !== null) {
       return response
     }
