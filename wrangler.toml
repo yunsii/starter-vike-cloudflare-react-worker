@@ -7,10 +7,7 @@ workers_dev = true
 kv_namespaces = [ { binding = "KV_STORE", id = "d3db85d6f7b14a338feda4cc0235e165" } ]
 
 [vars]
-ENABLED_R2 = true
-
-[env.production.vars]
-ENABLED_R2 = false
+ENABLED_R2 = "yes"
 
 [site]
 bucket = "./dist/client"
@@ -19,6 +16,20 @@ bucket = "./dist/client"
 port = 3000
 
 [[r2_buckets]]
+binding = 'R2_BUCKET'
+bucket_name = 'starter-vike-cloudflare-react-worker'
+preview_bucket_name = 'starter-vike-cloudflare-react-worker'
+
+# ###########################################################
+
+[env.production]
+kv_namespaces = [ { binding = "KV_STORE", id = "d3db85d6f7b14a338feda4cc0235e165" } ]
+
+[env.production.vars]
+# Disabled R2 in production env, in case cloudflare paid bill.
+ENABLED_R2 = "no"
+
+[[env.production.r2_buckets]]
 binding = 'R2_BUCKET'
 bucket_name = 'starter-vike-cloudflare-react-worker'
 preview_bucket_name = 'starter-vike-cloudflare-react-worker'

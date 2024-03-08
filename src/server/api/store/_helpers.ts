@@ -22,7 +22,7 @@ export async function upsertR2Store(value: DataType) {
 export async function getStore() {
   const [kvData, r2Data] = await Promise.all([
     KV_STORE.get(DATA_KEY),
-    enabledR2 ? R2_BUCKET.get(DATA_KEY).then((response) => response?.text() || null) : r2DisabledMessage,
+    enabledR2 ? R2_BUCKET.get(DATA_KEY).then((response) => response?.text() || null) : Promise.resolve(r2DisabledMessage),
   ])
   return {
     kvData,

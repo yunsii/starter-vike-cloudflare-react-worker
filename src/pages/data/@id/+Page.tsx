@@ -30,14 +30,16 @@ export default function Page() {
         <button
           className='border px-4 hover:bg-gray-100'
           onClick={async () => {
-            await fetch('/api/store/r2', {
+            const result = await fetch('/api/store/r2', {
               method: 'POST',
               headers: {
                 'content-type': 'text/plain',
               },
               body: r2Data,
             })
-            window.location.reload()
+            if (result.ok) {
+              window.location.reload()
+            }
           }}
         >
           Store
@@ -55,14 +57,16 @@ export default function Page() {
         <button
           className='border px-4 hover:bg-gray-100'
           onClick={async () => {
-            await fetch('/api/store/kv', {
+            const result = await fetch('/api/store/kv', {
               method: 'POST',
               headers: {
                 'content-type': 'text/plain',
               },
               body: kvData,
             })
-            window.location.reload()
+            if (result.ok) {
+              window.location.reload()
+            }
           }}
         >
           Store

@@ -1,4 +1,4 @@
-export const enabledR2 = ENABLED_R2 !== 'true'
+export const enabledR2 = ENABLED_R2 === 'yes'
 
 export interface DefinedApi {
   method: 'GET' | 'POST'
