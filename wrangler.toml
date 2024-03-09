@@ -4,6 +4,7 @@ main = "./src/worker/index.ts"
 compatibility_flags = [ "streams_enable_constructors" ]
 compatibility_date = "2021-09-29"
 workers_dev = true
+# npx --no -- wrangler kv:namespace create cf-worker-status-page-pro
 kv_namespaces = [ { binding = "KV_STORE", id = "90503fbbb2fd4645b36e9c026fe01384" } ]
 
 [vars]
