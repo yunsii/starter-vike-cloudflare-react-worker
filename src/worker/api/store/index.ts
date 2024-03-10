@@ -1,6 +1,6 @@
 import { getStore, upsertKvStore, upsertR2Store } from './helpers'
 
-import { ApiManager } from '#src/server/helpers'
+import { ApiManager } from '#src/worker/helpers'
 
 export function defineStoreApi() {
   ApiManager.define({

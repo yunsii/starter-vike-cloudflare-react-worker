@@ -83,6 +83,9 @@ function Sidebar({ children }: React.PropsWithChildren) {
         lineHeight: '1.8em',
       }}
     >
+      <a href='/'>
+        <img src='/logo.svg' className='size-[58px]' />
+      </a>
       {children}
     </div>
   )

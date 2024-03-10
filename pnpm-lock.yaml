@@ -103,6 +103,9 @@ devDependencies:
   autoprefixer:
     specifier: ^10.4.18
     version: 10.4.18(postcss@8.4.35)
+  dedent:
+    specifier: ^1.5.1
+    version: 1.5.1
   eslint:
     specifier: npm:eslint-ts-patch@8.57.0-0
     version: /eslint-ts-patch@8.57.0-0
@@ -148,6 +151,9 @@ devDependencies:
   unplugin-polish-tagged-templates:
     specifier: 0.1.1-beta.2
     version: 0.1.1-beta.2(esbuild@0.17.19)(vite@5.0.12)(vue@3.4.21)
+  zx:
+    specifier: ^7.2.3
+    version: 7.2.3
 
 packages:
 
@@ -2885,6 +2891,15 @@ packages:
   /decamelize@1.2.0:
     resolution: {integrity: sha512-z2S+W9X73hAUUki+N+9Za2lBlun89zigOyGrsax+KUQ6wKW4ZoWpEYBkGhQjwAjjDCkWxhY0VKEhk8wzY7F5cA==}
     engines: {node: '>=0.10.0'}
+    dev: true
+
+  /dedent@1.5.1:
+    resolution: {integrity: sha512-+LxW+KLWxu3HW3M2w2ympwtqPrqYRzU8fqi6Fhd18fBALe15blJPI/I4+UHveMVG6lJqB4JNd4UG0S5cnVHwIg==}
+    peerDependencies:
+      babel-plugin-macros: ^3.1.0
+    peerDependenciesMeta:
+      babel-plugin-macros:
+        optional: true
     dev: true
 
   /deep-extend@0.6.0:
