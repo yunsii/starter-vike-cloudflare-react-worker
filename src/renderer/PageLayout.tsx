@@ -34,6 +34,10 @@ export function PageLayout(props: React.PropsWithChildren<PageLayoutProps>) {
                 href: '/data',
                 label: 'Data',
               },
+              {
+                href: 'https://github.com/yunsii/starter-vike-cloudflare-react-worker',
+                label: 'Github',
+              },
             ].map((item) => {
               return (
                 <a
@@ -73,18 +77,14 @@ function Layout({ children }: React.PropsWithChildren) {
 function Sidebar({ children }: React.PropsWithChildren) {
   return (
     <div
-      style={{
-        padding: 20,
-        paddingTop: 42,
-        flexShrink: 0,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        lineHeight: '1.8em',
-      }}
+      className={cls`
+        flex flex-shrink-0 flex-col items-center 
+        p-5 pt-10
+        text-lg
+      `}
     >
       <a href='/'>
-        <img src='/logo.svg' className='size-[58px]' />
+        <img src='/logo.svg' className='size-12' />
       </a>
       {children}
     </div>
