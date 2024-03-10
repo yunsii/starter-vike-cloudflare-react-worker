@@ -13,50 +13,48 @@ export function PageLayout(props: React.PropsWithChildren<PageLayoutProps>) {
   const { pageContext, children } = props
 
   return (
-    <React.StrictMode>
-      <PageContextProvider pageContext={pageContext}>
-        <Layout>
-          <Sidebar>
-            {[
-              {
-                href: '/',
-                label: 'Home',
-              },
-              {
-                href: '/about',
-                label: 'About',
-              },
-              {
-                href: '/star-wars',
-                label: 'Star Wars',
-              },
-              {
-                href: '/data',
-                label: 'Data',
-              },
-              {
-                href: 'https://github.com/yunsii/starter-vike-cloudflare-react-worker',
-                label: 'Github',
-              },
-            ].map((item) => {
-              return (
-                <a
-                  key={item.href}
-                  className={cls`
-                    p-1 text-cyan-600 
-                    hover:text-cyan-500 hover:underline
-                  `}
-                  href={item.href}
-                >
-                  {item.label}
-                </a>
-              )
-            })}
-          </Sidebar>
-          <Content>{children}</Content>
-        </Layout>
-      </PageContextProvider>
-    </React.StrictMode>
+    <PageContextProvider pageContext={pageContext}>
+      <Layout>
+        <Sidebar>
+          {[
+            {
+              href: '/',
+              label: 'Home',
+            },
+            {
+              href: '/about',
+              label: 'About',
+            },
+            {
+              href: '/star-wars',
+              label: 'Star Wars',
+            },
+            {
+              href: '/data',
+              label: 'Data',
+            },
+            {
+              href: 'https://github.com/yunsii/starter-vike-cloudflare-react-worker',
+              label: 'Github',
+            },
+          ].map((item) => {
+            return (
+              <a
+                key={item.href}
+                className={cls`
+                  p-1 text-cyan-600 
+                  hover:text-cyan-500 hover:underline
+                `}
+                href={item.href}
+              >
+                {item.label}
+              </a>
+            )
+          })}
+        </Sidebar>
+        <Content>{children}</Content>
+      </Layout>
+    </PageContextProvider>
   )
 }
 
